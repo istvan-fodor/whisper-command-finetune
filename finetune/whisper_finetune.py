@@ -40,7 +40,6 @@ class DataCollatorSpeechSeq2SeqWithPadding:
 
 
 dataset = load_dataset('parquet', data_files = '../audio/*.parquet', streaming = False)
-print(dataset)
 dataset = dataset['train']
 
 # Function to process the audio data
@@ -91,7 +90,6 @@ dataset = dataset.map(prepare_dataset, remove_columns=['audio_array', 'sentence'
 # Set the dataset format for PyTorch
 dataset.set_format(type='torch', columns=['input_features', 'labels'])
 
-print(dataset)
 train_test = dataset.train_test_split(test_size=0.2)
 train_dataset = train_test['train']
 eval_dataset = train_test['test']
@@ -104,11 +102,13 @@ model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-small")
 # Configure the model for English transcription
 model.config.forced_decoder_ids = processor.get_decoder_prompt_ids(language="english", task="transcribe")
 
+use_fp16 = torch.cuda.is_available()
+
 # Define the training arguments
 training_args = Seq2SeqTrainingArguments(
     output_dir="../whisper_finetuned",
-    per_device_train_batch_size=8,
-    gradient_accumulation_steps=2,
+    per_device_train_batch_size=1,
+    gradient_accumulation_steps=8,
     learning_rate=1e-5,
     num_train_epochs=3,
     logging_steps=10,
@@ -116,7 +116,7 @@ training_args = Seq2SeqTrainingArguments(
     eval_steps=500,
     eval_strategy="steps",
     save_total_limit=2,
-    # fp16=True,
+    fp16=use_fp16,
     predict_with_generate=True,
 )
 

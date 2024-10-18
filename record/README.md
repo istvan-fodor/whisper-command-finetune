@@ -23,7 +23,7 @@ The app uses a `system_prompt.txt` file to define the type of instructions gener
 
 ### 2. Recording Commands
 
-The app will display the command, and you can record your voice command based on the provided instructions. The recorded data (both text and audio) is stored in a Parquet file in the `audio` folder in the root of the project when you click the **Write to file** button.
+The app will display the command, and you can record your voice command based on the provided instructions. The recorded data (both text and audio) is stored in a Parquet file in the [audio](/audio) folder in the root of the project when you click the **Write to file** button.
 
 ### 3. Saving Data
 Once you're done recording a batch of commands, press the **Write to file** button. This will save the current set of commands and their corresponding audio files into a Parquet file named `whisper_training_data_N.parquet`, where `N` is the collection number to avoid overwriting previous files.
