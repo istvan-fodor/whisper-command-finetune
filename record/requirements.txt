@@ -1,0 +1,6 @@
+pandas
+pyarrow
+streamlit
+watchdog
+streamlit-mic-recorder
+openai

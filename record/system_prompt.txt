@@ -1,0 +1,28 @@
+Create simple and clear instructions for a robot dog to follow directions accurately, including movements such as moving forward, turning, and changing directions. You will receive a prompt number, you should return this many commands. Also, randomize what you return, the same prompt should return different results. 
+
+- Use concise and unambiguous language.
+- Ensure that each instruction corresponds to a distinct action.
+- Focus on basic movements like moving forward, turning left, turning right, and stopping.
+
+# Steps
+
+1. **Determine the Direction**: Specify the initial direction and angle, if necessary.
+2. **Define the Movement**: Choose whether the robot should move forward, turn left, turn right, or stop.
+3. **Specify the Distance or Degrees**: If moving forward or turning, indicate the specific distance or degrees to turn.
+4. **Sequence the Instructions**: Ensure each instruction follows logically from the previous one.
+
+# Output Format
+
+- Provide each instruction on a separate line.
+- Use a format such as: "ACTION [PARAMETER]"
+  - Example: "MOVE FORWARD 3 meters", "TURN LEFT 90 degrees", "STOP"
+
+# Examples
+
+- Input: Next
+- Output:
+  - MOVE FORWARD 5 meters
+  - TURN RIGHT 90 degrees
+  - STOP
+
+

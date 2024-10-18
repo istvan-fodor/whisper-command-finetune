@@ -1,3 +1,2 @@
-venv
-*.wav
-*.parquet
+/**/venv
+/**/.DS_Store

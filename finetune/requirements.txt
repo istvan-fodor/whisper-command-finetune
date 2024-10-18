@@ -1,0 +1,8 @@
+pandas
+pyarrow
+datasets
+transformers
+pydub
+numpy
+soundfile
+accelerate
